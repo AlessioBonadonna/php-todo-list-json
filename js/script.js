@@ -23,6 +23,15 @@ const app = createApp({
 
             })
         },
+        fatto(index) {
+            const data = { 'done': index };
+            // console.log(data);
+            axios.post('./server.php', data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+                this.chiamataAxios()
+                // console.log(response.data)
+            })
+        }
+
 
 
     },
