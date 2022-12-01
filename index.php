@@ -19,7 +19,7 @@
 
 <body>
     <div id="app">
-        <div class="container">
+        <div class="container card mt-5">
             <h2>TO DO LIST </h2>
             <input type="text" v-model="newtask">
             <button @click="addtask()">aggiungi</button>
@@ -27,7 +27,7 @@
 
 
 
-            <ul>
+            <ul class="mt-5">
                 <li v-for="(todo,index) in todos" :class="{'done':todo.done}" :key="index" @click="fatto(index)">
                     {{todo.text}}<span @click.stop="removetask(index)"><i class="fa-solid fa-trash float-end"></i></span>
                 </li>
