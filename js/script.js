@@ -30,8 +30,16 @@ const app = createApp({
                 this.chiamataAxios()
                 // console.log(response.data)
             })
-        }
+        },
+        removetask(index) {
+            const data = { 'remove': index };
+            // console.log(data);
+            axios.post('./server.php', data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+                this.chiamataAxios()
+                //console.log(response.data)
+            })
 
+        }
 
 
     },

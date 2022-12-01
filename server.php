@@ -7,13 +7,17 @@ $todos = json_decode($file_texts, true); //decodificare il json ; //per renderlo
 
 if (isset($_POST['newTask'])) {
     $value = $_POST['newTask'];
-    $new_todo = ["text" => $value, "done" => true];
+    $new_todo = ["text" => $value, "done" => false];
     $todos[] = $new_todo;
     file_put_contents('./data.json', json_encode($todos));
 } elseif (isset($_POST['done'])) {
     $classe = $_POST['done'];
 
     $todos[$classe]['done'] = !$todos[$classe]['done'];
+    file_put_contents('./data.json', json_encode($todos));
+} elseif (isset($_POST['remove'])) {
+    $remove = $_POST['remove'];
+    array_splice($todos, $remove, 1);
     file_put_contents('./data.json', json_encode($todos));
 } else {
     header('Content-Type: application/json');

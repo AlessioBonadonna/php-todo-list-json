@@ -26,9 +26,10 @@
 
 
 
+
             <ul>
                 <li v-for="(todo,index) in todos" :class="{'done':todo.done}" :key="index" @click="fatto(index)">
-                    {{todo.text}}
+                    {{todo.text}}<span @click.stop="removetask(index)"><i class="fa-solid fa-trash float-end"></i></span>
                 </li>
             </ul>
 
