@@ -23,12 +23,17 @@
     <div id="app">
         <div class="container">
             <h2>TO DO LIST </h2>
+            <input type="text" v-model="newtask">
+            <button @click="addtask()">aggiungi</button>
+
+
 
             <ul>
                 <li v-for="(todo,index) in todos">
                     {{todo.text}}
                 </li>
             </ul>
+
 
         </div>
     </div>
